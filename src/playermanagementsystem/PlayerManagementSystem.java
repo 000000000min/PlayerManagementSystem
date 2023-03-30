@@ -10,6 +10,7 @@ public class PlayerManagementSystem {
 		Scanner input = new Scanner(System.in);
 		
 		while(num != 6) {
+			System.out.println("*** Player Management System Menu ***");
 			System.out.println("1. Add Player");	
 			System.out.println("2. Delete Player");
 			System.out.println("3. Edit Player");
@@ -21,23 +22,17 @@ public class PlayerManagementSystem {
 			
 			switch(num) {
 				case 1: {
-					System.out.print("Player Number to add: ");
-					int PlayerNumber1= input.nextInt();
-					System.out.print("Player Name: ");
-					String PlayerName= input.next();
+					addPlayer();
 					break;
 					}
 				case 2:
-					System.out.print("Player Number to delete: ");
-					int PlayerNumber2= input.nextInt();
+					deletePlayer();
 					break;
 				case 3:
-					System.out.print("Player Number to edit: ");
-					int PlayerNumber3= input.nextInt();
+					editPlayer();
 					break;
 				case 4:
-					System.out.print("Player Number to view: ");
-					int PlayerNumber4= input.nextInt();
+					viewPlayer();
 					break;
 				case 5:
 					
@@ -52,5 +47,32 @@ public class PlayerManagementSystem {
 		}
 
 	}
+	public static void addPlayer() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Player Number: ");
+		int playerNumber =input.nextInt();
+		System.out.print("Player Name");
+		String playerName = input.next();
+		System.out.print("Email address: ");
+		String playerEmail =input.next();
+		System.out.print("Phone number: ");
+		String playerPhone =input.next();
+
+	}
+	public static void deletePlayer() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Player Number to delete: ");
+		int PlayerNumber= input.nextInt();
+	}
+    public static void editPlayer() {
+    	Scanner input = new Scanner(System.in);
+		System.out.print("Player Number to edit: ");
+		int PlayerNumber= input.nextInt();
+	}
+    public static void viewPlayer() {
+    	Scanner input = new Scanner(System.in);
+		System.out.print("Player Number to view: ");
+		int PlayerNumber= input.nextInt();
+    }
 
 }
