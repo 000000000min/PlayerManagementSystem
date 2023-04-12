@@ -14,7 +14,7 @@ public class PlayerManagementSystem {
 			System.out.println("1. Add Player");	
 			System.out.println("2. Delete Player");
 			System.out.println("3. Edit Player");
-			System.out.println("4. View Player");
+			System.out.println("4. View Players");
 			System.out.println("5. Exit");
 			System.out.println("Select one number between 1-5:");
 			num = input.nextInt();
@@ -31,7 +31,7 @@ public class PlayerManagementSystem {
 					playerManager.editPlayer();
 					break;
 				case 4:
-					playerManager.viewPlayer();
+					playerManager.viewPlayers();
 					break;
 				default:
 					System.out.println("Plaese enter a number between 1-5!");

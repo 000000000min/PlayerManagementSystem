@@ -3,8 +3,8 @@ package playermanagementsystem;
 public class Player {
 	String name;
     int number;
-    String email;
-    String phone;
+    String position;
+    String nationality;
     
     Player(){
     	
@@ -14,14 +14,14 @@ public class Player {
     	this.name = name;
     	this.number = number;
     }
-    public Player(String name, int number, String email, String phone ) {
+    public Player(String name, int number, String position, String nationality ) {
     	this.name = name;
     	this.number = number;
-    	this.email = email;
-    	this.phone = phone;
+    	this.position = position;
+    	this.nationality = nationality;
     }
  	public void printInfo() {
-		System.out.println("name : " + name + "\n" + "number : " + number + "\n" + "email : " + email + "\n" + "phone : 1" + phone);
+		System.out.println("name : " + name + "  " + "number : " + number + "  " + "position : " + position + "  " + "nationality : " + nationality);
 		
 	}
 }
