@@ -1,6 +1,10 @@
 package playermanagementsystem;
 
 import java.util.Scanner;
+
+import player.Defender;
+import player.Player;
+
 import java.util.ArrayList;
 
 public class PlayerManager {
@@ -11,24 +15,47 @@ public class PlayerManager {
 	}
 	
 	public void addPlayer() {
-		Player player = new Player();
-		
-		System.out.print("Player Number: ");
-		player.number =input.nextInt();
-		System.out.print("Player Name: ");
-		player.name = input.next();
-		System.out.print("Position: ");
-		player.position =input.next();
-		System.out.print("Nationality: ");
-		player.nationality =input.next();
-		players.add(player);
+		int kind = 0;
+		Player player;
+		while(kind != 1 && kind != 2 && kind != 3 && kind != 4) {
+			System.out.println("1 for Goalkeeper");
+			System.out.println("2 for Defender");
+			System.out.println("3 for Midfielder");
+			System.out.println("4 for Foward");
+			System.out.println("Select num for Player Kind between 1 and 4");
+			kind = input.nextInt();
+			if(kind == 1) {
+				player  = new Player();
+				player.getUserInput(input);
+				players.add(player); 
+				break;
+			}
+			else if(kind == 2) {
+				player  = new Defender();
+				player.getUserInput(input);
+				players.add(player);
+				break;
+			}
+			else if(kind == 3) {
+				player  = new Player();
+				players.add(player);
+				break;
+			}
+			else if(kind == 4) {
+				player  = new Player();
+				players.add(player);
+				break;
+			}
+			else
+				System.out.print("Select num for Player Kind between 1 and 4");
+		}
 	}
 	public void deletePlayer() {
 		System.out.print("Player Number to delete: ");
-		int playerNumber= input.nextInt();
+		int playerNumber = input.nextInt();
 		int index = -1;
 		for(int i = 0; i < players.size();i++) {
-			if(players.get(i).number == playerNumber) {
+			if(players.get(i).getNumber() == playerNumber) {
 				index = i;
 				break;
 			}
@@ -47,7 +74,7 @@ public class PlayerManager {
 		int playerNumber= input.nextInt();
 		for(int i = 0; i < players.size();i++) {
 			Player player = players.get(i);
-			if(player.number == playerNumber) {
+			if(player.getNumber() == playerNumber) {
 				int num = -1;
 				while(num != 5) {
 					System.out.println("** Player Info Edit Menu **");
@@ -61,22 +88,26 @@ public class PlayerManager {
 					switch(num) {
 						case 1: {
 							System.out.print("Player Number: ");
-							player.number = input.nextInt();
+							int number = input.nextInt();
+							player.setNumber(number);
 							break;
 						}
 						case 2: {
 							System.out.print("Player Name: ");
-							player.name = input.next();
+							String name = input.next();
+							player.setName(name);
 							break;
 						}
 						case 3: {
 							System.out.print("Player Position: ");
-							player.position = input.next();
+							String position = input.next();
+							player.setPosition(position);
 							break;
 						}
 						case 4: {
 							System.out.print("Player Nationality: ");
-							player.nationality = input.next();
+							String nationality = input.next();
+							player.setNationality(nationality);
 							break;
 						}
 						case 5: {
@@ -90,8 +121,7 @@ public class PlayerManager {
 	}//editPlayer
 
     public void viewPlayers() {
-//		System.out.print("Player Number to view: ");
-//		int playerNumber= input.nextInt();
+    	System.out.println("# of registered players: " + players.size());
     	for(int i = 0; i < players.size();i++) {
     		players.get(i).printInfo();
     	}
