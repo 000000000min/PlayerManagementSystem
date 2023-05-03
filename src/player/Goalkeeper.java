@@ -2,7 +2,7 @@ package player;
 
 import java.util.Scanner;
 
-public class Foward extends Player {
+public class Goalkeeper extends Player {
 	public  void getUserInput(Scanner input) {
  		//번호
 		char answer_num = 'X';

@@ -6,7 +6,7 @@ public class Player {
 	protected PlayerKind kind = PlayerKind.Goalkeeper;
 	protected String name;
 	protected int number;
-	protected String position;
+	protected String team;
 	protected String nationality;
     
 	public PlayerKind getKind() {
@@ -33,12 +33,12 @@ public class Player {
 		this.number = number;
 	}
 
-	public String getPosition() {
-		return position;
+	public String getTeam() {
+		return team;
 	}
 
-	public void setPosition(String position) {
-		this.position = position;
+	public void setTeam(String team) {
+		this.team = team;
 	}
 
 	public String getNationality() {
@@ -57,14 +57,14 @@ public class Player {
     	this.name = name;
     	this.number = number;
     }
-    public Player(String name, int number, String position, String nationality ) {
+    public Player(String name, int number, String team, String nationality ) {
     	this.name = name;
     	this.number = number;
-    	this.position = position;
+    	this.team = team;
     	this.nationality = nationality;
     }
  	public void printInfo() {
-		System.out.println("name : " + name + "  " + "number : " + number + "  " + "position : " + position + "  " + "nationality : " + nationality);
+		System.out.println("name : " + name + "  " + "number : " + number + "  " + "team : " + team + "  " + "nationality : " + nationality);
 		
 	}
  	public void getUserInput(Scanner input) {
@@ -76,9 +76,9 @@ public class Player {
 		String name = input.next();
 		this.setName(name);
 		
-		System.out.print("Position: ");
-		String position =input.next();
-		this.setPosition(position);
+		System.out.print("Team: ");
+		String team =input.next();
+		this.setTeam(team);
 		
 		System.out.print("Nationality: ");
 		String nationality =input.next();

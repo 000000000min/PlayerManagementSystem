@@ -3,6 +3,9 @@ package playermanagementsystem;
 import java.util.Scanner;
 
 import player.Defender;
+import player.Foward;
+import player.Goalkeeper;
+import player.Midfielder;
 import player.Player;
 
 import java.util.ArrayList;
@@ -25,24 +28,26 @@ public class PlayerManager {
 			System.out.println("Select num for Player Kind between 1 and 4");
 			kind = input.nextInt();
 			if(kind == 1) {
-				player  = new Player();
+				player = new Goalkeeper();
 				player.getUserInput(input);
 				players.add(player); 
 				break;
 			}
 			else if(kind == 2) {
-				player  = new Defender();
+				player = new Defender();
 				player.getUserInput(input);
 				players.add(player);
 				break;
 			}
 			else if(kind == 3) {
-				player  = new Player();
+				player  = new Midfielder();
+				player.getUserInput(input);
 				players.add(player);
 				break;
 			}
 			else if(kind == 4) {
-				player  = new Player();
+				player  = new Foward();
+				player.getUserInput(input);
 				players.add(player);
 				break;
 			}
@@ -62,7 +67,7 @@ public class PlayerManager {
 		}
 		if(index >= 0) {
 			players.remove(index);
-			System.out.println("the player " + playerNumber + "is deleted.");
+			System.out.println("the player " + playerNumber + " is deleted.");
 		}
 		else {
 			System.out.println("the player has not been registered.");
@@ -80,7 +85,7 @@ public class PlayerManager {
 					System.out.println("** Player Info Edit Menu **");
 					System.out.println(" 1. Edit Number");
 					System.out.println(" 2. Edit Name");
-					System.out.println(" 3. Edit Position");
+					System.out.println(" 3. Edit Team");
 					System.out.println(" 4. Edit Nationality");
 					System.out.println(" 5. Exit");
 					System.out.println("Select one number between 1 - 5: ");
@@ -99,9 +104,9 @@ public class PlayerManager {
 							break;
 						}
 						case 3: {
-							System.out.print("Player Position: ");
-							String position = input.next();
-							player.setPosition(position);
+							System.out.print("Player Team: ");
+							String team = input.next();
+							player.setTeam(team);
 							break;
 						}
 						case 4: {
