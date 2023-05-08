@@ -1,6 +1,6 @@
 package player;
 
-public enum PlayerKind {
+public enum PlayerPosition {
 	Goalkeeper,
 	Defender,
 	Midfielder,

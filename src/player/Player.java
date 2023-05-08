@@ -3,18 +3,43 @@ package player;
 import java.util.Scanner;
 
 public class Player {
-	protected PlayerKind kind = PlayerKind.Goalkeeper;
+	protected PlayerPosition position = PlayerPosition.Goalkeeper;
 	protected String name;
 	protected int number;
 	protected String team;
 	protected String nationality;
+	
+    public Player(){
+    	
+    }
+    public Player(PlayerPosition position) {
+    	this.position = position;
+    }
     
-	public PlayerKind getKind() {
-		return kind;
+    public Player(String name, int number) {
+    	this.name = name;
+    	this.number = number;
+    }
+    public Player(String name, int number, String team, String nationality ) {
+    	this.name = name;
+    	this.number = number;
+    	this.team = team;
+    	this.nationality = nationality;
+    }
+    
+    public Player(PlayerPosition position, String name, int number, String team, String nationality ) {
+    	this.position = position;
+    	this.name = name;
+    	this.number = number;
+    	this.team = team;
+    	this.nationality = nationality;
+    }
+    public PlayerPosition getPosition() {
+		return position;
 	}
 
-	public void setKind(PlayerKind kind) {
-		this.kind = kind;
+	public void setPosition(PlayerPosition position) {
+		this.position = position;
 	}
 
 	public String getName() {
@@ -47,25 +72,25 @@ public class Player {
 
 	public void setNationality(String nationality) {
 		this.nationality = nationality;
-	}
-	
-    public Player(){
-    	
-    }
-    
-    public Player(String name, int number) {
-    	this.name = name;
-    	this.number = number;
-    }
-    public Player(String name, int number, String team, String nationality ) {
-    	this.name = name;
-    	this.number = number;
-    	this.team = team;
-    	this.nationality = nationality;
-    }
+	}	
  	public void printInfo() {
-		System.out.println("name : " + name + "  " + "number : " + number + "  " + "team : " + team + "  " + "nationality : " + nationality);
-		
+ 		String pPosition = "none";
+ 		switch(this.position) {
+ 			case Goalkeeper:
+ 				pPosition = "GK";
+ 				break;
+ 			case Defender:
+ 				pPosition = "DF";
+ 	 			break;
+ 			case Midfielder:
+ 				pPosition = "MF";
+ 	 			break;
+ 			case Foward:
+ 				pPosition = "FW";
+ 	 			break;
+ 	 		default:
+ 		}
+		System.out.println("| position: "+ pPosition +" | name : " + name + " | number : " + number + " | team : " + team + " | nationality : " + nationality + " |");
 	}
  	public void getUserInput(Scanner input) {
  		System.out.print("Player Number: ");

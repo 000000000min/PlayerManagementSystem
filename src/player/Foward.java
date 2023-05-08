@@ -3,6 +3,11 @@ package player;
 import java.util.Scanner;
 
 public class Foward extends Player {
+	protected String parentNationality;
+	public Foward(PlayerPosition position) {
+		super(position);
+    }
+	//getUserInput
 	public  void getUserInput(Scanner input) {
  		//번호
 		char answer_num = 'X';
@@ -61,10 +66,11 @@ public class Foward extends Player {
 		//국적
 		char answer_nationality = 'X';
 		while(answer_nationality != 'y' && answer_nationality != 'Y' && answer_nationality != 'n' && answer_nationality != 'N') {
-			System.out.println("Do you know his nationality? (Y/N)");
+			System.out.println("Do you know his parent's nationality? (Y/N)");
+			
 			answer_nationality = input.next().charAt(0);
 			if(answer_nationality == 'y'||answer_nationality == 'Y') {
-				System.out.print("Nationality: ");
+				System.out.print("Parent's nationality: ");
 				String nationality =input.next();
 				this.setNationality(nationality);
 				break;
@@ -77,4 +83,23 @@ public class Foward extends Player {
 			}
 		}
  	}
+ 	public void printInfo() {
+ 		String pPosition = "none";
+ 		switch(this.position) {
+ 			case Goalkeeper:
+ 				pPosition = "GK";
+ 				break;
+ 			case Defender:
+ 				pPosition = "DF";
+ 	 			break;
+ 			case Midfielder:
+ 				pPosition = "MF";
+ 	 			break;
+ 			case Foward:
+ 				pPosition = "FW";
+ 	 			break;
+ 	 		default:
+ 		}
+		System.out.println("position: "+ pPosition +" name : " + name + "  " + " number : " + number + "  " + " team : " + team + "  " + " parent's nationality : " + nationality);
+	}
 }

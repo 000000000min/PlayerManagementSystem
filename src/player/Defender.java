@@ -3,6 +3,9 @@ package player;
 import java.util.Scanner;
 
 public class Defender extends Player {
+	public Defender(PlayerPosition position) {
+    	super(position);
+    }
 	public  void getUserInput(Scanner input) {
  		//번호
 		char answer_num = 'X';

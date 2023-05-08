@@ -3,6 +3,9 @@ package player;
 import java.util.Scanner;
 
 public class Goalkeeper extends Player {
+    public Goalkeeper(PlayerPosition position) {
+    	super(position);
+    }
 	public  void getUserInput(Scanner input) {
  		//번호
 		char answer_num = 'X';

@@ -33,6 +33,9 @@ public class PlayerManagementSystem {
 				case 4:
 					playerManager.viewPlayers();
 					break;
+				case 5:
+					System.out.println("The Program is finished");
+					break;
 				default:
 					System.out.println("Plaese enter a number between 1-5!");
 					continue; //break;

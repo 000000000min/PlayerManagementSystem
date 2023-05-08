@@ -7,6 +7,7 @@ import player.Foward;
 import player.Goalkeeper;
 import player.Midfielder;
 import player.Player;
+import player.PlayerPosition;
 
 import java.util.ArrayList;
 
@@ -18,41 +19,41 @@ public class PlayerManager {
 	}
 	
 	public void addPlayer() {
-		int kind = 0;
+		int position = 0;
 		Player player;
-		while(kind != 1 && kind != 2 && kind != 3 && kind != 4) {
+		while(position != 1 && position != 2 && position != 3 && position != 4) {
 			System.out.println("1 for Goalkeeper");
 			System.out.println("2 for Defender");
 			System.out.println("3 for Midfielder");
 			System.out.println("4 for Foward");
-			System.out.println("Select num for Player Kind between 1 and 4");
-			kind = input.nextInt();
-			if(kind == 1) {
-				player = new Goalkeeper();
+			System.out.println("Select num for Player position between 1 and 4");
+			position = input.nextInt();
+			if(position == 1) {
+				player = new Goalkeeper(PlayerPosition.Goalkeeper);
 				player.getUserInput(input);
 				players.add(player); 
 				break;
 			}
-			else if(kind == 2) {
-				player = new Defender();
+			else if(position == 2) {
+				player = new Defender(PlayerPosition.Defender);
 				player.getUserInput(input);
 				players.add(player);
 				break;
 			}
-			else if(kind == 3) {
-				player  = new Midfielder();
+			else if(position == 3) {
+				player  = new Midfielder(PlayerPosition.Midfielder);
 				player.getUserInput(input);
 				players.add(player);
 				break;
 			}
-			else if(kind == 4) {
-				player  = new Foward();
+			else if(position == 4) {
+				player  = new Foward(PlayerPosition.Foward);
 				player.getUserInput(input);
 				players.add(player);
 				break;
 			}
 			else
-				System.out.print("Select num for Player Kind between 1 and 4");
+				System.out.print("Select num for Player position between 1 and 4");
 		}
 	}
 	public void deletePlayer() {
