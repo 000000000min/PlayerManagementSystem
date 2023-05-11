@@ -2,7 +2,7 @@ package player;
 
 import java.util.Scanner;
 
-public class Midfielder extends Player {
+public class Midfielder extends Player implements PlayerInput{
 	public Midfielder(PlayerPosition position) {
 		super(position);
     }

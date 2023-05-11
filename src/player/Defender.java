@@ -2,7 +2,7 @@ package player;
 
 import java.util.Scanner;
 
-public class Defender extends Player {
+public class Defender extends Player implements PlayerInput {
 	public Defender(PlayerPosition position) {
     	super(position);
     }
@@ -80,4 +80,23 @@ public class Defender extends Player {
 			}
 		}
  	}
+	public void printInfo() {
+ 		String pPosition = "none";
+ 		switch(this.position) {
+ 			case Goalkeeper:
+ 				pPosition = "GK";
+ 				break;
+ 			case Defender:
+ 				pPosition = "DF";
+ 	 			break;
+ 			case Midfielder:
+ 				pPosition = "MF";
+ 	 			break;
+ 			case Foward:
+ 				pPosition = "FW";
+ 	 			break;
+ 	 		default:
+ 		}
+		System.out.println("| position: "+ pPosition +" | name : " + name + " | number : " + number + " | team : " + team + " | nationality : " + nationality + " |");
+	}
 }

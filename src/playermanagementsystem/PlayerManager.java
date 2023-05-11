@@ -7,12 +7,13 @@ import player.Foward;
 import player.Goalkeeper;
 import player.Midfielder;
 import player.Player;
+import player.PlayerInput;
 import player.PlayerPosition;
 
 import java.util.ArrayList;
 
 public class PlayerManager {
-	ArrayList<Player> players = new ArrayList<Player>();
+	ArrayList<PlayerInput> players = new ArrayList<PlayerInput>();
 	Scanner input;
 	PlayerManager(Scanner input){
 		this.input = input;
@@ -20,7 +21,7 @@ public class PlayerManager {
 	
 	public void addPlayer() {
 		int position = 0;
-		Player player;
+		PlayerInput playerInput;
 		while(position != 1 && position != 2 && position != 3 && position != 4) {
 			System.out.println("1 for Goalkeeper");
 			System.out.println("2 for Defender");
@@ -29,27 +30,27 @@ public class PlayerManager {
 			System.out.println("Select num for Player position between 1 and 4");
 			position = input.nextInt();
 			if(position == 1) {
-				player = new Goalkeeper(PlayerPosition.Goalkeeper);
-				player.getUserInput(input);
-				players.add(player); 
+				playerInput = new Goalkeeper(PlayerPosition.Goalkeeper);
+				playerInput.getUserInput(input);
+				players.add(playerInput); 
 				break;
 			}
 			else if(position == 2) {
-				player = new Defender(PlayerPosition.Defender);
-				player.getUserInput(input);
-				players.add(player);
+				playerInput = new Defender(PlayerPosition.Defender);
+				playerInput.getUserInput(input);
+				players.add(playerInput);
 				break;
 			}
 			else if(position == 3) {
-				player  = new Midfielder(PlayerPosition.Midfielder);
-				player.getUserInput(input);
-				players.add(player);
+				playerInput  = new Midfielder(PlayerPosition.Midfielder);
+				playerInput.getUserInput(input);
+				players.add(playerInput);
 				break;
 			}
 			else if(position == 4) {
-				player  = new Foward(PlayerPosition.Foward);
-				player.getUserInput(input);
-				players.add(player);
+				playerInput  = new Foward(PlayerPosition.Foward);
+				playerInput.getUserInput(input);
+				players.add(playerInput);
 				break;
 			}
 			else
@@ -79,8 +80,8 @@ public class PlayerManager {
 		System.out.print("Player Number: ");
 		int playerNumber= input.nextInt();
 		for(int i = 0; i < players.size();i++) {
-			Player player = players.get(i);
-			if(player.getNumber() == playerNumber) {
+			PlayerInput playerInput = players.get(i);
+			if(playerInput.getNumber() == playerNumber) {
 				int num = -1;
 				while(num != 5) {
 					System.out.println("** Player Info Edit Menu **");
@@ -95,25 +96,25 @@ public class PlayerManager {
 						case 1: {
 							System.out.print("Player Number: ");
 							int number = input.nextInt();
-							player.setNumber(number);
+							playerInput.setNumber(number);
 							break;
 						}
 						case 2: {
 							System.out.print("Player Name: ");
 							String name = input.next();
-							player.setName(name);
+							playerInput.setName(name);
 							break;
 						}
 						case 3: {
 							System.out.print("Player Team: ");
 							String team = input.next();
-							player.setTeam(team);
+							playerInput.setTeam(team);
 							break;
 						}
 						case 4: {
 							System.out.print("Player Nationality: ");
 							String nationality = input.next();
-							player.setNationality(nationality);
+							playerInput.setNationality(nationality);
 							break;
 						}
 						case 5: {

@@ -2,7 +2,7 @@ package player;
 
 import java.util.Scanner;
 
-public class Foward extends Player {
+public class Foward extends Player implements PlayerInput {
 	protected String parentNationality;
 	public Foward(PlayerPosition position) {
 		super(position);
