@@ -2,7 +2,9 @@ package player;
 
 import java.util.Scanner;
 
-public abstract class Player {
+import exception.TeamFormatException;
+
+public abstract class Player implements PlayerInput{
 	protected PlayerPosition position = PlayerPosition.Goalkeeper; //defalut값
 	protected String name;
 	protected int number;
@@ -62,7 +64,11 @@ public abstract class Player {
 		return team;
 	}
 
-	public void setTeam(String team) {
+	public void setTeam(String team) throws TeamFormatException {
+		if(!team.contains("FC")&&!team.equals("")) {
+			throw new TeamFormatException();
+		}
+		
 		this.team = team;
 	}
 
@@ -74,5 +80,52 @@ public abstract class Player {
 		this.nationality = nationality;
 	}	
  	public abstract void printInfo();
+ 	
+ 	public void setPlayerNumber(Scanner input) {
+    	System.out.print("Player Number: ");
+		int number = input.nextInt();
+		this.setNumber(number);
+    }
+    public void setPlayerName(Scanner input) {
+    	System.out.print("Player Name: ");
+		String name = input.next();
+		this.setName(name);
+    }
+    public void setPlayerTeam(Scanner input) {
+    	String team = "";
+    	while(!team.contains("FC")) {
+	    	System.out.print("Player Team: ");
+			team = input.next();
+			try {
+				this.setTeam(team);
+			} catch (TeamFormatException e) {
+				System.out.println("Incorrect Team Format. put the team name that contains 'FC'.");
+			}
+    	}
+    }
+    public void setPlayerNationality(Scanner input) {
+    	System.out.print("Player Nationality: ");
+		String nationality = input.next();
+		this.setNationality(nationality);
+    }
+    public String getKindString() { 
+ 		String pPosition = "none";
+ 		switch(this.position) {
+ 			case Goalkeeper:
+ 				pPosition = "GK";
+ 				break;
+ 			case Defender:
+ 				pPosition = "DF";
+ 	 			break;
+ 			case Midfielder:
+ 				pPosition = "MF";
+ 	 			break;
+ 			case Foward:
+ 				pPosition = "FW";
+ 	 			break;
+ 	 		default:
+ 		}
+ 		return pPosition;   
+ 	}
  	
 }

@@ -2,7 +2,9 @@ package player;
 
 import java.util.Scanner;
 
-public class Midfielder extends Player implements PlayerInput{
+import exception.TeamFormatException;
+
+public class Midfielder extends FieldPlayer{
 	public Midfielder(PlayerPosition position) {
 		super(position);
     }
@@ -51,11 +53,21 @@ public class Midfielder extends Player implements PlayerInput{
 			if(answer_team == 'y'||answer_team == 'Y') {
 				System.out.print("Team: ");
 				String team =input.next();
-				this.setTeam(team);
+				try {
+					this.setTeam(team);
+				} catch (TeamFormatException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				break;
 			}
 			else if(answer_team == 'n'||answer_team == 'N') {
-				this.setTeam("");
+				try {
+					this.setTeam("");
+				} catch (TeamFormatException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				break;
 			}
 			else {
@@ -80,4 +92,23 @@ public class Midfielder extends Player implements PlayerInput{
 			}
 		}
  	}
+	public void printInfo() {
+		String pPosition = "none";
+ 		switch(this.position) {
+ 			case Goalkeeper:
+ 				pPosition = "GK";
+ 				break;
+ 			case Defender:
+ 				pPosition = "DF";
+ 	 			break;
+ 			case Midfielder:
+ 				pPosition = "MF";
+ 	 			break;
+ 			case Foward:
+ 				pPosition = "FW";
+ 	 			break;
+ 	 		default:
+ 		}
+		System.out.println("| position: "+ pPosition +" | name : " + name + " | number : " + number + " | team : " + team + " | nationality : " + nationality + " |");
+	}
 }
