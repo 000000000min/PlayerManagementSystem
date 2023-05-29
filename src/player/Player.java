@@ -1,10 +1,16 @@
 package player;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 import exception.TeamFormatException;
 
-public abstract class Player implements PlayerInput{
+public abstract class Player implements PlayerInput,Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5700977186574448331L;
+	
 	protected PlayerPosition position = PlayerPosition.Goalkeeper; //defalut값
 	protected String name;
 	protected int number;

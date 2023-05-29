@@ -6,16 +6,22 @@ import player.Defender;
 import player.Foward;
 import player.Goalkeeper;
 import player.Midfielder;
-import player.Player;
 import player.PlayerInput;
 import player.PlayerPosition;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 
-public class PlayerManager{
+public class PlayerManager implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2527841937517789526L;
+	
+	
 	ArrayList<PlayerInput> players = new ArrayList<PlayerInput>();
-	Scanner input;
+	transient Scanner input;
 	PlayerManager(Scanner input){
 		this.input = input;
 	}
