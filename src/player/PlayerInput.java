@@ -6,15 +6,21 @@ import exception.TeamFormatException;
 
 public interface PlayerInput {
 	
+	public int getNumber();
+	
 	public void setNumber(int number);
+	
+	public String getName();
 	
 	public void setName(String name);
 	
+	public String getTeam();
+	
 	public void setTeam(String team) throws TeamFormatException;
 	
-	public void setNationality(String nationality);
+	public String getNationality();
 	
-	public int getNumber();
+	public void setNationality(String nationality);
 	
 	public  void getUserInput(Scanner input);
 	

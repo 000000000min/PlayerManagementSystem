@@ -6,6 +6,7 @@ import player.Defender;
 import player.Foward;
 import player.Goalkeeper;
 import player.Midfielder;
+import player.Player;
 import player.PlayerInput;
 import player.PlayerPosition;
 
@@ -141,6 +142,13 @@ public class PlayerManager implements Serializable{
     	}
     }
     
+    public int size() {
+    	return players.size();
+    }
+    
+    public PlayerInput get(int index) {
+    	return (Player) players.get(index);
+    }
     
     public void showEditMenu() {
     	System.out.println("** Player Info Edit Menu **");
